@@ -20,7 +20,10 @@ let widget = Widget(configuration);
 setTimeout(widget.start, 2000);
 ```
 
-- run npm install/build/serve
+- execute:
+    npm install
+    npm run build 
+    npm run serve
 - The library will be served at `http://172.0.0.1:3355/demo.js` as requested
 - An widget button appears after a few seconds with the colors mixed
 
