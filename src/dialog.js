@@ -7,13 +7,19 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import styles from "./styles/style";
 
 const NewWidget = (properties) => {
-  const { image, attributes, select_attribute, placeholder_text } = properties;
+  const {
+    image,
+    attributes,
+    select_attribute,
+    placeholder_text,
+    pathImage,
+  } = properties;
 
   const [open, setOpen] = React.useState(false);
 
   const [loadingPage, setLoadingPage] = React.useState(false);
 
-  const [randomCollor, setRandomCollor] = React.useState(null);
+  const [randomColor, setRandomColor] = React.useState(null);
 
   const [randomSelected, setRandomSelected] = React.useState(false);
   let randonOption;
@@ -27,14 +33,14 @@ const NewWidget = (properties) => {
   };
 
   const closeModal = () => {
-    setRandomCollor(null);
+    setRandomColor(null);
     setRandomSelected(false);
     setOpen(false);
   };
 
   const handleRandomization = () => {
     if (randomSelected) {
-      select_attribute(randomCollor);
+      select_attribute(randomColor);
       closeModal();
     } else {
       setLoadingPage(true);
@@ -42,12 +48,12 @@ const NewWidget = (properties) => {
 
       if (attributes) {
         randonOption = randonInit(0, attributes.length);
-        setRandomCollor(attributes[randonOption]);
+        setRandomColor(attributes[randonOption]);
       }
       console.log("Value selected randomly: " + attributes[randonOption]);
 
       setTimeout(() => {
-        select_attribute(randomCollor);
+        select_attribute(randomColor);
         setLoadingPage(false);
         setRandomSelected(true);
       }, 2000);
@@ -58,20 +64,26 @@ const NewWidget = (properties) => {
     <div style={styles.modal}>
       <h2 id="simple-modal-title" style={styles.title}>
         {randomSelected
-          ? "The color choose was "
+          ? "The color choose was " + randomColor
           : loadingPage
           ? "Loading..."
           : "Click the button to randomize your choice!"}
       </h2>
       <div>
         {randomSelected ? (
-          <h2 style={styles.title}>{randomCollor}</h2>
+          <div>
+            <img
+              style={styles.image}
+              src={pathImage + randomColor + ".png"}
+              alt={randomColor}
+            />
+          </div>
         ) : loadingPage ? (
           <div style={styles.loading}>
             <CircularProgress />
           </div>
         ) : (
-          <img style={styles.image} src={image} alt={randomCollor} />
+          <img style={styles.image} src={image} alt={randomColor} />
         )}
         {!loadingPage && (
           <div>

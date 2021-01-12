@@ -4,7 +4,7 @@ Front-end task for Easysize company:
 
 ### Instructions
 
-- Uncomment widget code in `script.js` from original project ;
+- Replace widget code in `script.js` from original project ;
 
 ```js
 let configuration = {
@@ -13,6 +13,7 @@ let configuration = {
   placeholder_text: "Surprise me with the color",
   cart_button: ".cart-btn",
   image: window.location.origin + "/images/black.png",
+  pathImage: window.location.origin + "/images/",
   select_attribute: function (attr) {},
 };
 

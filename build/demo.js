@@ -46167,7 +46167,8 @@ var NewWidget = function NewWidget(properties) {
   var image = properties.image,
       attributes = properties.attributes,
       select_attribute = properties.select_attribute,
-      placeholder_text = properties.placeholder_text;
+      placeholder_text = properties.placeholder_text,
+      pathImage = properties.pathImage;
 
   var _React$useState = _react.default.useState(false),
       _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -46181,8 +46182,8 @@ var NewWidget = function NewWidget(properties) {
 
   var _React$useState5 = _react.default.useState(null),
       _React$useState6 = _slicedToArray(_React$useState5, 2),
-      randomCollor = _React$useState6[0],
-      setRandomCollor = _React$useState6[1];
+      randomColor = _React$useState6[0],
+      setRandomColor = _React$useState6[1];
 
   var _React$useState7 = _react.default.useState(false),
       _React$useState8 = _slicedToArray(_React$useState7, 2),
@@ -46200,14 +46201,14 @@ var NewWidget = function NewWidget(properties) {
   };
 
   var closeModal = function closeModal() {
-    setRandomCollor(null);
+    setRandomColor(null);
     setRandomSelected(false);
     setOpen(false);
   };
 
   var handleRandomization = function handleRandomization() {
     if (randomSelected) {
-      select_attribute(randomCollor);
+      select_attribute(randomColor);
       closeModal();
     } else {
       setLoadingPage(true);
@@ -46215,12 +46216,12 @@ var NewWidget = function NewWidget(properties) {
 
       if (attributes) {
         randonOption = randonInit(0, attributes.length);
-        setRandomCollor(attributes[randonOption]);
+        setRandomColor(attributes[randonOption]);
       }
 
       console.log("Value selected randomly: " + attributes[randonOption]);
       setTimeout(function () {
-        select_attribute(randomCollor);
+        select_attribute(randomColor);
         setLoadingPage(false);
         setRandomSelected(true);
       }, 2000);
@@ -46232,14 +46233,16 @@ var NewWidget = function NewWidget(properties) {
   }, /*#__PURE__*/_react.default.createElement("h2", {
     id: "simple-modal-title",
     style: _style.default.title
-  }, randomSelected ? "The color choose was " : loadingPage ? "Loading..." : "Click the button to randomize your choice!"), /*#__PURE__*/_react.default.createElement("div", null, randomSelected ? /*#__PURE__*/_react.default.createElement("h2", {
-    style: _style.default.title
-  }, randomCollor) : loadingPage ? /*#__PURE__*/_react.default.createElement("div", {
+  }, randomSelected ? "The color choose was " + randomColor : loadingPage ? "Loading..." : "Click the button to randomize your choice!"), /*#__PURE__*/_react.default.createElement("div", null, randomSelected ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+    style: _style.default.image,
+    src: pathImage + randomColor + ".png",
+    alt: randomColor
+  })) : loadingPage ? /*#__PURE__*/_react.default.createElement("div", {
     style: _style.default.loading
   }, /*#__PURE__*/_react.default.createElement(_CircularProgress.default, null)) : /*#__PURE__*/_react.default.createElement("img", {
     style: _style.default.image,
     src: image,
-    alt: randomCollor
+    alt: randomColor
   }), !loadingPage && /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "outlined",
     style: _style.default.surpriseButton,
