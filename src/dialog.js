@@ -64,7 +64,7 @@ const NewWidget = (properties) => {
     <div style={styles.modal}>
       <h2 id="simple-modal-title" style={styles.title}>
         {randomSelected
-          ? "The color choose was " + randomColor
+          ? "The random color is " + randomColor
           : loadingPage
           ? "Loading..."
           : "Click the button to randomize your choice!"}

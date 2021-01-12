@@ -46233,7 +46233,7 @@ var NewWidget = function NewWidget(properties) {
   }, /*#__PURE__*/_react.default.createElement("h2", {
     id: "simple-modal-title",
     style: _style.default.title
-  }, randomSelected ? "The color choose was " + randomColor : loadingPage ? "Loading..." : "Click the button to randomize your choice!"), /*#__PURE__*/_react.default.createElement("div", null, randomSelected ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+  }, randomSelected ? "The random color is " + randomColor : loadingPage ? "Loading..." : "Click the button to randomize your choice!"), /*#__PURE__*/_react.default.createElement("div", null, randomSelected ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
     style: _style.default.image,
     src: pathImage + randomColor + ".png",
     alt: randomColor

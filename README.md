@@ -32,8 +32,8 @@ setTimeout(widget.start, 2000);
 
 - When clicks the button a modal show up
 
-  ![Screenshot](gitModal.jpg)
+  ![Screenshot](gitModal1.jpg)
 
 - After click the button surprise me, the color was choose randomly to user select
 
-  ![Screenshot](gitModal3.jpg)
+  ![Screenshot](gitModal2.jpg)
